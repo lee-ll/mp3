@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width">
+		<!-- Add to homescreen for Safari on Ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="todo">
+  <!--<link rel="apple-touch-icon" href="logo.jpg">-->
+
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="application-name" content="todo">
+  <meta name="theme-color" content="#2F3BA2">
+  <!--<link rel="icon" sizes="192x192" href="logo.jpg">-->
+  	<link rel="stylesheet" href="css/index.css" />
+  	<script src="js/jQuery.js"></script>
+  	<script src="js/index.js"></script>
+		<title></title>
+	</head>
+	<body>
+		<div class="main">
+			<audio src="./music/那英 - 离开我 (Live) [mqms2].mp3" id="audio" controls></audio>
+			<div class="head">
+				<div class="menu">
+					<img src="./img/v1.png" alt="" />
+				</div>
+				<div class="set">
+					<img src="./img/radio (1).png" alt="" />
+				</div>
+			</div>
+			<div class="cirle">
+				<img src="./img/radio (2).png" alt=""  class="img1"/>
+				<img src="./img/radio (2).png" alt="" class="img2"/>
+			</div>
+			<div class="neirong">
+				<div class="jiemian"></div>
+				<div class="s-name"></div>
+				<div class="jindu">
+					<div class="progress" id="progress">
+						<div class="pi" id="pi"></div>
+					</div>
+					<div class="pro-bg" id="pro-bg"></div>
+				</div>
+			</div>
+			<div class="xiabu">
+				<div class="anniu">
+					<div class="pre"></div>
+					<div class="play" id="play">
+						<div class="zhe">
+							<div class="bg"></div>
+						</div>
+					</div>
+					<div class="next"></div>
+				</div>
+				<div class="zi">
+					<div class="pre-zi">PREV</div>
+					<div class="center-zi">PLAY/PAUSE</div>
+					<div class="next-zi">NEXT</div>
+				</div>
+			</div>
+			<div class="geciye">
+				<div class="nav">
+					<div class="nav-left"></div>
+					<div class="nav-center">aerghs</div>
+					<div class="nav-right"></div>
+				</div>
+				<div class="zuozhe-box">
+					<div class="zuozhe">bklalhger</div>
+					<div class="sel">
+						<div class="liuchang"></div>
+						<div class="dujia"></div>
+						<div class="yinxiao"></div>
+					</div>
+				</div>
+				<div class="gc-xiangqing"></div>
+				<div class="danmu">
+					<div class="dan"></div>
+					<div class="yin"></div>
+				</div>
+				<div class="jindu">
+					<div class="current-time">12.33</div>
+					<div  id="progress1">
+						<div  id="pi1"></div>
+					</div>
+					<div  id="pro"></div>
+					<div class="duration">12:55</div>
+				</div>
+				<div class="control">
+					<div class="pre"></div>
+					<div class="plays"></div>
+					<div class="next"></div>
+				</div>
+				<div class="xiamenu">
+					<div class="like">
+						<i>&#xe665;</i>
+					</div>
+					<div class="oder"></div>
+					<div class="download"></div>
+					<div class="save"></div>
+					<div class="list"></div>
+				</div>
+		   </div>
+		   <div class="liebiaoye">
+		   	<div class="liebiao">
+		   		<div class="list1">
+		   			<div class="list-head">
+		   				<div class="xunhuan"><i class="iconfont">&#xe606;</i></div>
+		   				<div class="list-zi">顺序播放<span>(50首)</span></div>
+		   				<div class="xiazai"><i>&#xe636;</i></div>
+		   				<div class="tianjia"><i>&#xe615;</i></div>
+		   				<div class="laji"><i>&#xe62b;</i></div>
+		   			</div>
+		   			<ul class="song-list" id="ul">
+		   				<!--<li>
+		   					<span>冷雨夜（Live）</span>
+		   					<span></span>
+		   					<span>-杨丞琳</span>
+		   					<span></span>
+		   					<div><i class="i">&#xe665;</i></div>
+		   					<div class="delete"><i>&#xe6cb;</i></div>
+		   				</li>-->
+		   			</ul>
+		   			<div class="tiange">+添加歌曲到队列</div>
+		   		</div>
+		   		<div class="guanbi">关闭</div>
+		   	</div>
+		   </div>
+		   <div class="tianjiaye">
+		   	<div class="tj-head">
+		   		<div class="all">全部</div>
+		   		<div class="bianji">批量编辑</div>
+		   		<div class="close">关闭</div>
+		   	</div>
+		   	<ul class="tj-body">
+		   		<li data-v='{"name":"只要有你","src":"./music/那英、孙楠 - 只要有你.mp3","duration":"4:10","author":"那英、孙楠"}' class="song">
+		   			<div class="biaoji"></div>
+		   			<div class="tj-gm">只要有你(Live)</div>
+		   			<div class="tj-zz">那英、孙楠</div>
+		   		</li>
+		   		<li data-v='{"name":"小幸运","src":"./music/谭嘉仪 - 小幸运.mp3","duration":"4:18","author":"谭嘉仪 "}' class="song">
+		   			<div class="biaoji"></div>
+		   			<div class="tj-gm">小幸运(Live)</div>
+		   			<div class="tj-zz">谭嘉仪 </div>
+		   		</li>
+		   		<li data-v='{"name":"别咬我","src":"./music/许嵩 - 别咬我.mp3","duration":"4:02","author":"许嵩 "}' class="song">
+		   			<div class="biaoji"></div>
+		   			<div class="tj-gm">别咬我(Live)</div>
+		   			<div class="tj-zz">许嵩</div>
+		   		</li>
+		   	</ul>
+		   	<div class="addto">
+		   		<img src="./img/add.png" alt="" />
+		   	</div>
+		   </div>
+		   <div class="yinliangye">
+		   	<div class="yly">
+		   		<div class="geminzi">海阔太空(Live)</div>
+		   		<ul>
+		   			<li>
+		   				<div class="div1"></div>
+		   				<div class="div2"></div>
+		   				<div class="div3"></div>
+		   				<div class="div4"></div>
+		   			</li>
+		   			<li>
+		   				<div class="div1"></div>
+		   				<div class="div2"></div>
+		   				<div class="div3"></div>
+		   				<div class="div4"></div>
+		   			</li>
+		   		</ul>
+		   		<div class="volume">
+		   			<div class="voice-logo"></div>
+		   			<div class="voice">
+		   				<div class="vi"></div>
+		   			</div>
+		   		</div>
+		   		<div class="quxiao">取消</div>
+		   	</div>
+		   </div>
+		</div>
+		
+	</body>
+</html>
