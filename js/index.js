@@ -75,12 +75,18 @@ $(function() {
 	$(".tj-body").on("touchend", ".song", function() {
 			var index = $(this).index();
 			var d = $(this).attr("data-v");
-			$(".song .biaoji").eq(index).css("background", "#31c27c");
-			musics.push(JSON.parse(d));
-			render();
+		    if($(".song .biaoji").eq(index).css("background")=="rgb(49, 194, 124) none repeat scroll 0% 0% / auto padding-box border-box"){
+		    	$(".song .biaoji").eq(index).css("background", "transparent");
+		    }else{
+		    	$(".song .biaoji").eq(index).css("background", "#31c27c");
+				musics.push(JSON.parse(d));
+				render();
+		    }
+				
+			
+			
 		})
 		//全部添加
-	console.log($(".biaoji").css("background"));
 	$(".all").on("touchend", function() {
 		if ($(".biaoji").css("background") == "rgba(0, 0, 0, 0) none repeat scroll 0% 0% / auto padding-box border-box") {
 			$(".biaoji").css("background", "#31c27c");
@@ -95,7 +101,10 @@ $(function() {
 		})
 		render();
 	})
-
+   //全部删除
+   $(".laji").on("touchend",function(){
+   	$(".song-list li").html("");
+   })
 	var current = $(".current-time");
 	var duration = $(".duration");
 	var progress = $(".progress");
@@ -259,9 +268,10 @@ $(function() {
 
 		}
 		//切换页面
-	$(".neirong").on("touchend", function() {
-		$(".geciye").removeAttr("id");
-		$(".geciye").attr("id", "gecidong");
+	$(".s-name").on("touchend", function(e) {
+			$(".geciye").removeAttr("id");
+		    $(".geciye").attr("id", "gecidong");
+	
 	})
 	$(".nav-left").on("touchend", function() {
 		$(".geciye").removeAttr("id");
