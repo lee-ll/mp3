@@ -86,10 +86,7 @@ $(function() {
 		    	$(".song .biaoji").eq(index).css("background", "#31c27c");
 				musics.push(JSON.parse(d));
 				render();
-		    }
-				
-			
-			
+		    }	
 		})
 		//全部添加
 	$(".all").on("touchend", function() {
@@ -110,21 +107,61 @@ $(function() {
    $(".laji").on("touchend",function(){
    	$(".song-list li").html("");
    })
+   //点击进度条跳转
 	var current = $(".current-time");
 	var duration = $(".duration");
 	var progress = $(".progress");
 	var progress1 = $("#progress1");
-	var pi = $(".pi");
+	var pi = $("#pi");
 	var pi1 = $("#pi1");
-	//		var mute=$("#mute");
-	$(".pro-bg").on("touchend", function(e) {
-		var offsetX = e.originalEvent.changedTouches[0].clientX - progress.offset().left;
-		audio.currentTime = offsetX / $(this).width() * audio.duration;
+	var w=$(".pro-sign").width()/2;
+	var kuan=$("#progress").width();
+	var kuan1=$("#progress1").width();
+
+    $(".pro-sign").on("touchstart",function(e){
+		var offsetX=e.originalEvent.changedTouches[0].clientX-$(".pro-sign").position().left;
+		var start=w-offsetX;
+		$(document).on("touchmove",function(e){
+			var left=e.originalEvent.changedTouches[0].clientX+start;
+			if(left>=kuan||left<=0){
+				return;
+			}
+			audio.currentTime=left/kuan*audio.duration;
+		});
+		return false;
+	});
+	$(".pro-sign").on("touchend",function(){
+		$(document).off("touchmove");
 	})
-	$("#pro").on("touchend", function(e) {
-		var offsetX = e.originalEvent.changedTouches[0].clientX - progress1.offset().left;
-		audio.currentTime = offsetX / $(this).width() * audio.duration;
+	$(".pro-sign").on("touchend",false);
+	$('.jindu').on("touchend",function(e){
+		var offsetX=e.originalEvent.changedTouches[0].clientX-
+					progress.offset().left;
+		audio.currentTime=offsetX/kuan*audio.duration;
 	})
+
+	$(".pro-circle").on("touchstart",function(e){
+		var offsetX=e.originalEvent.changedTouches[0].clientX-$(".pro-circle").position().left;
+		var start=w-offsetX;
+		$(document).on("touchmove",function(e){
+			var left=e.originalEvent.changedTouches[0].clientX+start;
+			if(left>=kuan1||left<=0){
+				return;
+			}
+			audio.currentTime=left/kuan1*audio.duration;
+		});
+		return false;
+	});
+	$(".pro-circle").on("touchend",function(){
+		$(document).off("touchmove");
+	})
+	$(".pro-circle").on("touchend",false);
+	$('#progress1').on("touchend",function(e){
+		var offsetX=e.originalEvent.changedTouches[0].clientX-
+					progress.offset().left;
+		audio.currentTime=offsetX/kuan1*audio.duration;
+	})
+
 
 	function format(v) {
 		v = Math.floor(v);
@@ -133,20 +170,18 @@ $(function() {
 		var m = Math.floor(v / 60);
 		return m + ":" + s;
 	}
-
+   
 	$(audio).on("timeupdate", function() {
 		current.html(format(audio.currentTime));
-		var left = progress.width() * audio.currentTime / audio.duration
-		pi.css("width", left);
+		var	left=kuan*audio.currentTime/audio.duration;
+		var	left1=kuan1*audio.currentTime/audio.duration;
+		$(".pro-sign").css("left",left-w);
+		$(".pro-bg").css("width",left-w);
+		$('#pro').css("width",left1-w);
+		$(".pro-circle").css("left",left1-w);
 		play2();
 
 	})
-	$(audio).on("timeupdate", function() {
-			current.html(format(audio.currentTime));
-			var left = progress1.width() * audio.currentTime / audio.duration
-			pi1.css("width", left);
-
-		})
 		//调节音量
 	var voice = $(".voice");
 	var vi = $(".vi");
@@ -173,44 +208,7 @@ $(function() {
 		audio.volume = offsetX / $(this).width();
 		//				mute.removeAttr("data-v");
 	})
-
-	pi.on("touchend", false);
-	pi1.on("touchend", false);
-	pi.on("touchstart", function(e) {
-		$(document).on("touchmove", function(e) {
-			var m = e.originalEvent.changedTouches[0].clientX;
-			var left = m - progress.position().left;
-			var c = left / progress.width() * audio.duration;
-			if (c >= audio.duration) {
-				return;
-			}
-			audio.currentTime = c;
-		})
-		return false;
-	})
-	pi1.on("touchstart", function(e) {
-			$(document).on("touchmove", function(e) {
-				var m = e.originalEvent.changedTouches[0].clientX;
-				var left = m - progress1.position().left;
-				var c = left / progress1.width() * audio.duration;
-				if (c >= audio.duration) {
-					return;
-				}
-				audio.currentTime = c;
-			})
-			return false;
-		})
-		//静音
-		//		mute.on("click",function(){
-		//			if($(this).attr("data-v")){
-		//				audio.volume=$(this).attr("data-v");
-		//				$(this).removeAttr("data-v");
-		//			}else{
-		//				$(this).attr("data-v",audio.volume);
-		//				audio.volume=0;
-		//			}
-		//		})
-		//事件驱动的模式设置音量按钮的位置
+//事件驱动的模式设置音量按钮的位置
 	audio.onvolumechange = function() {
 		vi.css("left", voice.width() * audio.volume - vi.width() / 2)
 	}
@@ -366,6 +364,7 @@ $(function() {
 			if(lyrict1==p1.eq(i).attr("id")){
 				p1.css("color","#a7a1a1")
 				p1.eq(i).css("color","#fff");
+				$(".s-now").html(p1.eq(i).html());
 				$(".lyric2").animate({"top":-i*0.6+0.6+"rem"},1000)
 			}
 		}

@@ -115,6 +115,18 @@ body {
         text-align: center;
         line-height: 0.6rem;
         color: #425546; }
+        body .main .neirong .s-now {
+        width: 4.75rem;
+        height: 0.6rem;
+        position: absolute;
+        left: 1.35rem;
+        top: 1.6rem;
+        background: #a1c5ad;
+        z-index: 10;
+        font-size: 0.3rem;
+        text-align: center;
+        line-height: 0.6rem;
+        color: #425546; }
       body .main .neirong .jindu {
         width: 4.23rem;
         height: 0.08rem;
@@ -122,13 +134,27 @@ body {
         left: 1.63rem;
         bottom: 0.93rem; }
         body .main .neirong .jindu #pro-bg {
-          width: 4.22rem;
-          height: 0.08rem;
-          background: transparent;
+          width: 0;
+          height:0.08rem;
           position: absolute;
-          left: 0;
           top: 0;
-          z-index: 20; }
+          left: 0;
+          background: #FFDA2F;
+          z-index:10;
+          border-radius:0.04rem; }
+          .pro-sign{
+              width: 0.35rem;
+              height: 0.35rem;
+              border-radius: 50%;
+              background: #FFDA2F;
+              position: absolute;
+              top: 50%;
+              margin-top: -0.175rem;
+              opacity: 0.8;
+              z-index:10;
+              left: -0.175rem;
+              opacity: 0;
+          }
         body .main .neirong .jindu #progress {
           background: url(../img/v_03.png);
           background-size: cover;
@@ -324,8 +350,7 @@ body {
       float: left;
       border-radius: 0.05rem;
       margin-top: 0.32rem;
-      position: relative;
-      overflow: hidden; }
+      position: relative; }
       .geciye .jindu #progress1 #pi1 {
         width: 0rem;
         height: 0.08rem;
@@ -334,13 +359,27 @@ body {
         top: 0rem;
         background: #f7cecb; }
     .geciye .jindu #pro {
-      width: 5.24rem;
+      width:0;
       height: 0.08rem;
       position: absolute;
-      background: transparent;
+      background:#FFDA2F;
       z-index: 40;
-      left: 1.11rem;
-      top: 0.32rem; }
+      left: 0;
+      top: 0; }
+      .geciye .jindu #progress1 .pro-circle{
+              width: 0.35rem;
+              height: 0.35rem;
+              border-radius: 50%;
+              background: #FFDA2F;
+              position: absolute;
+              top: 50%;
+              margin-top: -0.175rem;
+              opacity: 0.8;
+              z-index:30;
+              left: -0.175rem;
+              opacity: 0;
+          }
+      }
     .geciye .jindu .duration {
       width: 0.87rem;
       height: 100%;
