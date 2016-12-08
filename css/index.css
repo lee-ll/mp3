@@ -153,7 +153,7 @@ body {
               opacity: 0.8;
               z-index:10;
               left: -0.175rem;
-              opacity: 0;
+             /* opacity: 0;*/
           }
         body .main .neirong .jindu #progress {
           background: url(../img/v_03.png);

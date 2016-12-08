@@ -123,7 +123,7 @@ $(function() {
 		var start=w-offsetX;
 		$(document).on("touchmove",function(e){
 			var left=e.originalEvent.changedTouches[0].clientX+start;
-			if(left>=kuan||left<=0){
+			if(left>=kuan+2*w||left<=0){
 				return;
 			}
 			audio.currentTime=left/kuan*audio.duration;
@@ -145,7 +145,7 @@ $(function() {
 		var start=w-offsetX;
 		$(document).on("touchmove",function(e){
 			var left=e.originalEvent.changedTouches[0].clientX+start;
-			if(left>=kuan1||left<=0){
+			if(left>=kuan1+2*w||left<=0){
 				return;
 			}
 			audio.currentTime=left/kuan1*audio.duration;
